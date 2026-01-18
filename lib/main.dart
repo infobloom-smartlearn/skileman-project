@@ -13,12 +13,16 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
   // Initialize Firebase
-  // Configured using provided Web credentials. 
-  // For Android/iOS, please run `flutterfire configure`.
   try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    if (kIsWeb) {
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+    } else {
+      // For Android and iOS, we rely on the native configuration files 
+      // (google-services.json / GoogleService-Info.plist) being picked up by the plugin.
+      await Firebase.initializeApp();
+    }
   } catch (e) {
     debugPrint("Firebase initialization failed: $e");
   }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "475100708715",
+    "project_id": "spikeman-27593",
+    "storage_bucket": "spikeman-27593.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475100708715:android:e2080ea9440a284cda962e",
+        "android_client_info": {
+          "package_name": "com.example.skilemantask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqYeMAbNzPT6MnDe6SWnakvtRLoGj8l_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
