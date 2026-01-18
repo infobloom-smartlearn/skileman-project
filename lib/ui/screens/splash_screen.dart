@@ -1,11 +1,21 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
-import '../../services/auth_service.dart';
-import '../auth_wrapper.dart'; // [NEW] import
+import '../auth_wrapper.dart';
 
-// ...
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 3), () {
+      if (mounted) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (_) => const AuthWrapper()),
         );
@@ -22,7 +32,7 @@ import '../auth_wrapper.dart'; // [NEW] import
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
-              Icons.work_outline_rounded, // Simple placeholder logo
+              Icons.work_outline_rounded,
               size: 80,
               color: AppColors.white,
             ),
@@ -46,13 +56,3 @@ import '../auth_wrapper.dart'; // [NEW] import
     );
   }
 }
-
-// Temporary wrapper to decide where to go, or we can just go to AuthScreen
-// The prompt asks for "Splash Screen -> Authentication Screen". 
-// But a real app usually checks if user is logged in.
-// I will direct to AuthScreen as requested, but `AuthScreen` can handle the "already logged in" case 
-// or main.dart can. I'll stick to a simple AuthWrapper here or in main.
-// For now, let's just make sure AuthWrapper is defined somewhere or imported.
-// Actually, I'll put AuthWrapper in main.dart to be cleaner.
-// So here I will just navigate to 'Wrapper' or 'AuthScreen'.
-// Let's navigate to a named route '/' or just AuthScreen for simplicity as asked.
