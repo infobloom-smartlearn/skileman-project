@@ -2,31 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
 import '../../services/auth_service.dart';
-import 'auth_screen.dart';
+import '../auth_wrapper.dart'; // [NEW] import
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+// ...
 
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(const Duration(seconds: 3), () {
-      // Check if widget is still mounted before navigating
-      if (mounted) {
-        // We will delegate actual routing decision to a Wrapper in main.dart
-        // But per requirements "Automatically navigates to Authentication screen"
-        // I'll assume we navigate to the wrapper or AuthScreen directly if not redundant.
-        // For better UX during dev (if no auth wrapper in main yet), we replace with AuthScreen.
-        // However, standard practice is to let main's StreamBuilder handle it.
-        // But to strictly follow "Splash Screen -> Automatically navigates", I will pushReplacement.
-        
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const AuthScreen()),
+          MaterialPageRoute(builder: (_) => const AuthWrapper()),
         );
       }
     });

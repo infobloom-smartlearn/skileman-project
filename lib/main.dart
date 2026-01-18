@@ -8,9 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'utils/constants.dart';
 import 'services/auth_service.dart';
 import 'ui/screens/splash_screen.dart';
-import 'ui/screens/auth_screen.dart';
-import 'ui/screens/home_screen.dart'; // [NEW]
 import 'firebase_options.dart'; 
+// AuthWrapper is now defined in its own file: 'ui/auth_wrapper.dart' (implicitly used via flow)
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,20 +70,5 @@ class MyApp extends StatelessWidget {
         home: const SplashScreen(),
       ),
     );
-  }
-}
-
-// Wrapper to decide between Home and Auth
-class AuthWrapper extends StatelessWidget {
-  const AuthWrapper({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final firebaseUser = context.watch<User?>();
-
-    if (firebaseUser != null) {
-      return const HomeScreen();
-    }
-    return const AuthScreen();
   }
 }
