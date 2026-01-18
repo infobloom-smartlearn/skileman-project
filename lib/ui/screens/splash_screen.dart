@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
         // But to strictly follow "Splash Screen -> Automatically navigates", I will pushReplacement.
         
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const AuthWrapper()),
+          MaterialPageRoute(builder: (_) => const AuthScreen()),
         );
       }
     });

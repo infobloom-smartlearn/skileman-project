@@ -8,7 +8,6 @@ import 'utils/constants.dart';
 import 'services/auth_service.dart';
 import 'ui/screens/splash_screen.dart';
 import 'firebase_options.dart'; 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
@@ -19,9 +18,7 @@ void main() async {
         options: DefaultFirebaseOptions.currentPlatform,
       );
     } else {
-      // For Android and iOS, we rely on the native configuration files 
-      // (google-services.json / GoogleService-Info.plist) being picked up by the plugin.
-      await Firebase.initializeApp();
+       await Firebase.initializeApp();
     }
   } catch (e) {
     debugPrint("Firebase initialization failed: $e");
