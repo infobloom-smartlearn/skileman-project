@@ -9,7 +9,9 @@ import 'utils/constants.dart';
 import 'services/auth_service.dart';
 import 'ui/screens/splash_screen.dart';
 import 'ui/screens/auth_screen.dart';
+import 'ui/screens/home_screen.dart'; // [NEW]
 import 'firebase_options.dart'; 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
@@ -81,45 +83,8 @@ class AuthWrapper extends StatelessWidget {
     final firebaseUser = context.watch<User?>();
 
     if (firebaseUser != null) {
-      return const HomeScreenPlaceholder();
+      return const HomeScreen();
     }
     return const AuthScreen();
-  }
-}
-
-// Simple Placeholder for Home
-class HomeScreenPlaceholder extends StatelessWidget {
-  const HomeScreenPlaceholder({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Spikeman Inc.'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              context.read<AuthService>().signOut();
-            },
-          ),
-        ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.check_circle_outline, size: 80, color: Colors.green),
-            const SizedBox(height: 16),
-            const Text(
-              'Logged In Successfully!',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            const Text('Welcome to Spikeman Inc.'),
-          ],
-        ),
-      ),
-    );
   }
 }
